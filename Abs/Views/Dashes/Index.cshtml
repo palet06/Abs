@@ -1,0 +1,66 @@
+﻿@model IEnumerable<Abs.Models.Dash>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<h2>GÖREVLİ PERSONEL LİSTESİ</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+
+
+        <th>
+            SÜRÜCÜ İSMİ
+        </th>
+        <th>
+            SÜRÜCÜ SOYİSMİ
+        </th>
+        <th>
+            ARAÇ MARKASI
+        </th>
+        <th>
+            ARAÇ MODELİ
+        </th>
+        <th>
+            MAKAM İSMİ
+        </th>
+        <th>
+            MAKAM SOYİSMİ
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Driver.Name)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Driver.Surname)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Car.Brand)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Car.Model)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Manager.Name)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Manager.Surname)
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.DashId }) |
+        @Html.ActionLink("Details", "Details", new { id = item.DashId }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.DashId })
+    </td>
+</tr>
+}
+
+</table>
